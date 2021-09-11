@@ -34,3 +34,9 @@ h1 {
     text-align: center;
     line-height: 35px;
 }
+
+#start-button p:active {
+    font-size: 95%;
+    height: 32px;
+    width: 140px;
+}
