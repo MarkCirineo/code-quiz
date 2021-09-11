@@ -54,6 +54,13 @@ li {
     font-size: 120%;
 }
 
+li:hover {
+    cursor: pointer;
+    font-size: 122%;
+    height: 33px;
+    width: 288px;
+}
+
 li:active {
     font-size: 100%;
     height: 28px;

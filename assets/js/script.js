@@ -14,6 +14,6 @@ function startQuestionOne() {
     var question = document.createElement("h2")
     question.textContent = "Commonly used data types DO NOT include: "
     main.prepend(question);
-    
+
     questionOne.setAttribute("style", "display: block;")
 }
