@@ -9,21 +9,24 @@ var questionThree = document.getElementById("question-three");
 var questionFour = document.getElementById("question-four");
 var questionFive = document.getElementById("question-five");
 var time = 60;
+var timerP = document.getElementById("timer-p")
 
 //timer function
 function timer() {
     var allTimer = setInterval(function() {
         time--;
+        timerP.textContent = "Time: " + time;
         if (time === 0 || time < 0) {
             clearInterval(allTimer);
-            console.log("lose")
+            time = 0;
+            timerP.textContent = "Time: " + time;
         }   
     }, 1000);
 }
 
 function wrongAnswer() {
     time = time - 10;
-    console.log(time)
+    timerP.textContent = "Time: " + time;
 }
 
 //clicking the start button
