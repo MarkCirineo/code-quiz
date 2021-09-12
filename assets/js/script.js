@@ -212,4 +212,14 @@ function correctAnswerFive() {
 function showScores () {
     questionFive.setAttribute("style", "display: none;")
     question.textContent = "High Scores!"
+    //will probably change this later idk
+    var endResult = document.createElement("p");
+    endResult.setAttribute("class", "end-result")
+    if (time === 0 ||  time < 0) {
+        endResult.textContent = "You Lose!"
+        main.appendChild(endResult);
+    } else {
+        endResult.textContent = "You Win!"
+        main.appendChild(endResult);
+    }
 }

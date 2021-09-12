@@ -93,3 +93,9 @@ h3 {
     opacity: 0.6;
     /* display: block; */
 }
+
+.end-result {
+    text-align: center;
+    font-size: 130%;
+    margin: 10px;
+}
