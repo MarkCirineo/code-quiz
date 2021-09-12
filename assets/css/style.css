@@ -67,15 +67,15 @@ li:active {
     width: 272px;
 }
 
-#question-one {
+.questions {
     display: none;
 }
 
-#question-one ol {
+.questions ol {
     padding: 2px 30%;
 }
 
-#question-one ol li {
+.questions ol li {
     margin: 3px 0;
     background-color: purple;
     color: white;
