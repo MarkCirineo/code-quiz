@@ -21,15 +21,8 @@ function startQuestionOne() {
     questionOne.setAttribute("style", "display: block;")
 }
 
-//choosing answer for question 1
-var wrongOne = document.querySelectorAll(".wrong-one")
-var correctOne = document.querySelector(".correct-one")
-
-wrongOne.forEach(function(wrong) {
-    wrong.addEventListener("click", wrongAnswer)
-});
-function wrongAnswer() {
-    //show wrong message
+//function for wrong alert for all question
+function wrongAlertAll() {
     var wrongAlert = document.createElement("h3");
     wrongAlert.textContent = "Wrong!"
     main.appendChild(wrongAlert);
@@ -41,12 +34,9 @@ function wrongAnswer() {
             wrongAlert.setAttribute("style", "display: none")
         }
     }, 1000);
-    //show question two
-    startQuestionTwo();
 }
-
-correctOne.addEventListener("click", correctAnswer);
-function correctAnswer() {
+//function for correct alert for all questions
+function correctAlertAll() {
     var correctAlert = document.createElement("h3");
     correctAlert.textContent = "Correct!"
     main.appendChild(correctAlert);
@@ -58,6 +48,26 @@ function correctAnswer() {
             correctAlert.setAttribute("style", "display: none;")
         }
     }, 1000);
+}
+
+//choosing answer for question 1
+var wrongOne = document.querySelectorAll(".wrong-one")
+var correctOne = document.querySelector(".correct-one")
+
+wrongOne.forEach(function(wrong) {
+    wrong.addEventListener("click", wrongAnswerOne)
+});
+function wrongAnswerOne() {
+    //show wrong message
+    wrongAlertAll();
+    //show question two
+    startQuestionTwo();
+}
+
+correctOne.addEventListener("click", correctAnswerOne);
+function correctAnswerOne() {
+    //show correct message
+    correctAlertAll();
     //show question two
     startQuestionTwo();
 }
@@ -69,3 +79,26 @@ function startQuestionTwo() {
 }
 
 //choosing answer for question 2
+var wrongTwo = document.querySelectorAll(".wrong-two")
+var correctTwo = document.querySelector(".correct-two")
+
+wrongTwo.forEach(function(wrong) {
+    wrong.addEventListener("click", wrongAnswerTwo)
+});
+function wrongAnswerTwo() {
+    //show wrong message
+    wrongAlertAll();
+    //show question two
+    startQuestionThree();
+}
+
+correctTwo.addEventListener("click", correctAnswerTwo);
+function correctAnswerTwo() {
+    correctAlertAll();
+    //show question two
+    startQuestionThree();
+}
+
+function startQuestionThree() {
+
+}
