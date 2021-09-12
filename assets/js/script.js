@@ -5,6 +5,7 @@ var main = document.getElementById("main");
 var question = document.createElement("h2")
 var questionOne = document.getElementById("question-one");
 var questionTwo = document.getElementById("question-two");
+var questionThree = document.getElementById("question-three");
 
 //clicking the start button
 startButton.addEventListener("click", startQuestionOne);
@@ -72,6 +73,7 @@ function correctAnswerOne() {
     startQuestionTwo();
 }
 
+//starts question two
 function startQuestionTwo() {
     questionOne.setAttribute("style", "display: none;");
     question.textContent = "The condition in an if / else statement is enclosed within _____."
@@ -99,6 +101,35 @@ function correctAnswerTwo() {
     startQuestionThree();
 }
 
+//starts question three
 function startQuestionThree() {
+    questionTwo.setAttribute("style", "display: none;");
+    question.textContent = "Arrays in JavaScript can be used to store _____."
+    questionThree.setAttribute("style", "display: block;")
+}
+
+//choosing answer for queston 3
+var wrongThree = document.querySelectorAll(".wrong-three")
+var correctThree = document.querySelector(".correct-three")
+
+wrongThree.forEach(function(wrong) {
+    wrong.addEventListener("click", wrongAnswerThree)
+});
+function wrongAnswerThree() {
+    //show wrong message
+    wrongAlertAll();
+    //show question two
+    startQuestionFour();
+}
+
+correctThree.addEventListener("click", correctAnswerThree);
+function correctAnswerThree() {
+    correctAlertAll();
+    //show question two
+    startQuestionFour();
+}
+
+//starts question four
+function startQuestionFour() {
 
 }
