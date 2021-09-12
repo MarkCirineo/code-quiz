@@ -17,3 +17,33 @@ function startQuestionOne() {
 
     questionOne.setAttribute("style", "display: block;")
 }
+
+var wrongOne = document.querySelectorAll(".wrong-one")
+var correctOne = document.querySelector(".correct-one")
+
+wrongOne.forEach(function(wrong) {
+    wrong.addEventListener("click", wrongAnswer)
+});
+
+function wrongAnswer() {
+    var wrongAlert = document.createElement("h3");
+    wrongAlert.textContent = "Wrong!"
+    main.appendChild(wrongAlert);
+    var alertSeconds = 3;
+    var alertTimer = setInterval(function() {
+        alertSeconds--;
+        if(alertSeconds === 0) {
+            clearInterval(alertTimer);
+            wrongAlert.setAttribute("style", "display: none")
+        }
+    }, 1000);
+    
+}
+
+correctOne.addEventListener("click", correctAnswer)
+
+function correctAnswer() {
+    var correctAlert = document.createElement("h3");
+    correctAlert.textContent = "Correct!"
+    main.appendChild(correctAlert);
+}
