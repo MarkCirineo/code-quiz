@@ -6,6 +6,7 @@ var question = document.createElement("h2")
 var questionOne = document.getElementById("question-one");
 var questionTwo = document.getElementById("question-two");
 var questionThree = document.getElementById("question-three");
+var questionFour = document.getElementById("question-four");
 
 //clicking the start button
 startButton.addEventListener("click", startQuestionOne);
@@ -15,7 +16,7 @@ function startQuestionOne() {
     startP.setAttribute("style", "display: none;");
     h1.setAttribute("style", "display: none;");
     startButton.setAttribute("style", "display: none;")
-    //created quetsion
+    //created question
     question.textContent = "Commonly used data types DO NOT include: "
     main.prepend(question);
     //showed question 1 options
@@ -131,5 +132,33 @@ function correctAnswerThree() {
 
 //starts question four
 function startQuestionFour() {
+    questionThree.setAttribute("style", "display: none;");
+    question.textContent = "String values must be encolsed within _____ when being assigned to variables."
+    questionFour.setAttribute("style", "display: block;")
+}
 
+//choosing answer for queston 4
+var wrongThree = document.querySelectorAll(".wrong-four")
+var correctThree = document.querySelector(".correct-four")
+
+wrongThree.forEach(function(wrong) {
+    wrong.addEventListener("click", wrongAnswerFour)
+});
+function wrongAnswerFour() {
+    //show wrong message
+    wrongAlertAll();
+    //show question two
+    startQuestionFive();
+}
+
+correctThree.addEventListener("click", correctAnswerFour);
+function correctAnswerFour() {
+    correctAlertAll();
+    //show question two
+    startQuestionFive();
+}
+
+//starts question five
+function startQuestionFive() {
+    
 }
