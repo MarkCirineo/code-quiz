@@ -7,6 +7,7 @@ var questionOne = document.getElementById("question-one");
 var questionTwo = document.getElementById("question-two");
 var questionThree = document.getElementById("question-three");
 var questionFour = document.getElementById("question-four");
+var questionFive = document.getElementById("question-five");
 
 //clicking the start button
 startButton.addEventListener("click", startQuestionOne);
@@ -138,10 +139,10 @@ function startQuestionFour() {
 }
 
 //choosing answer for queston 4
-var wrongThree = document.querySelectorAll(".wrong-four")
-var correctThree = document.querySelector(".correct-four")
+var wrongFour = document.querySelectorAll(".wrong-four")
+var correctFour = document.querySelector(".correct-four")
 
-wrongThree.forEach(function(wrong) {
+wrongFour.forEach(function(wrong) {
     wrong.addEventListener("click", wrongAnswerFour)
 });
 function wrongAnswerFour() {
@@ -151,7 +152,7 @@ function wrongAnswerFour() {
     startQuestionFive();
 }
 
-correctThree.addEventListener("click", correctAnswerFour);
+correctFour.addEventListener("click", correctAnswerFour);
 function correctAnswerFour() {
     correctAlertAll();
     //show question two
@@ -160,5 +161,28 @@ function correctAnswerFour() {
 
 //starts question five
 function startQuestionFive() {
-    
+    questionFour.setAttribute("style", "display: none;");
+    question.textContent = "A very useful tool used during development and debugging for printing content to the debugger is:"
+    questionFive.setAttribute("style", "display: block;")
+}
+
+//choosing answer for queston 5
+var wrongFive = document.querySelectorAll(".wrong-five")
+var correctFive = document.querySelector(".correct-five")
+
+wrongFive.forEach(function(wrong) {
+    wrong.addEventListener("click", wrongAnswerFive)
+});
+function wrongAnswerFive() {
+    //show wrong message
+    wrongAlertAll();
+    //show question two
+    showScores();
+}
+
+correctFive.addEventListener("click", correctAnswerFive);
+function correctAnswerFive() {
+    correctAlertAll();
+    //show question two
+    showScores();
 }
