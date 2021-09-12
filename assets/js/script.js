@@ -36,7 +36,7 @@ function wrongAlertAll() {
             clearInterval(alertTimer);
             wrongAlert.setAttribute("style", "display: none")
         }
-    }, 1000);
+    }, 800);
 }
 //function for correct alert for all questions
 function correctAlertAll() {
@@ -50,7 +50,7 @@ function correctAlertAll() {
             clearInterval(alertTimer);
             correctAlert.setAttribute("style", "display: none;")
         }
-    }, 1000);
+    }, 800);
 }
 
 //choosing answer for question 1
@@ -185,4 +185,9 @@ function correctAnswerFive() {
     correctAlertAll();
     //show question two
     showScores();
+}
+
+function showScores () {
+    questionFive.setAttribute("style", "display: none;")
+    question.textContent = "High Scores!"
 }
