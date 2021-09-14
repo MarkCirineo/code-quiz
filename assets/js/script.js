@@ -12,6 +12,7 @@ var time = 60;
 var timerP = document.getElementById("timer-p")
 var initialsInput = document.getElementById("initials");
 var saveScoreButton = document.getElementById("save-score");
+var endResult = document.createElement("p");
 
 //timer function
 function timer() {
@@ -22,7 +23,11 @@ function timer() {
             clearInterval(allTimer);
             time = 0;
             timerP.textContent = "Time: " + time;
-        }   
+            enterInitials();
+        } else if (endResult.textContent === "You Win!") {
+            clearInterval(allTimer);
+            timerP.textContent = "Time: " + time;
+        }
     }, 1000);
 }
 
@@ -212,9 +217,12 @@ function correctAnswerFive() {
 }
 
 function enterInitials() {
+    questionOne.setAttribute("style", "display: none;")
+    questionTwo.setAttribute("style", "display: none;")
+    questionThree.setAttribute("style", "display: none;")
+    questionFour.setAttribute("style", "display: none;")
     questionFive.setAttribute("style", "display: none;")
     question.textContent = "Enter Your Initials:"
-    var endResult = document.createElement("p");
     endResult.setAttribute("class", "end-result")
     if (time === 0 ||  time < 0) {
         endResult.textContent = "You Lose!"
@@ -223,10 +231,9 @@ function enterInitials() {
         endResult.textContent = "You Win!"
         main.prepend(endResult);
     }
-    // TODO: add way to stop timer
+    console.log(time - 1);
     initialsInput.setAttribute("style", "display: block;")
     saveScoreButton.setAttribute("style", "display: block;")
-    // showScores();
 }
 
 saveScoreButton.addEventListener("click", saveScores)
