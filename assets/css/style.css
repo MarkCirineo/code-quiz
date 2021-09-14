@@ -96,6 +96,24 @@ h3 {
 
 .end-result {
     text-align: center;
-    font-size: 130%;
+    font-size: 260%;
     margin: 10px;
+    font-weight: bold;
+}
+
+input {
+    width: 80%;
+    padding: 10px;
+    margin: 10px auto;
+    display: none;
+}
+
+#save-score {
+    margin: 10px auto;
+    background-color: purple;
+    color: white;
+    text-align: center;
+    padding: 6px 40px;
+    border-radius: 12px;
+    display: none;
 }
