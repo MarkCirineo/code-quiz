@@ -223,6 +223,11 @@ function enterInitials() {
     questionFour.setAttribute("style", "display: none;")
     questionFive.setAttribute("style", "display: none;")
     question.textContent = "Enter Your Initials:"
+    var scoreP = document.createElement("p")
+    scoreP.setAttribute("class", "score")
+    var score = time - 1;
+    scoreP.textContent = "Your score: " + score;
+    main.prepend(scoreP);
     endResult.setAttribute("class", "end-result")
     if (time === 0 ||  time < 0) {
         endResult.textContent = "You Lose!"

@@ -117,3 +117,10 @@ input {
     border-radius: 12px;
     display: none;
 }
+
+.score {
+    text-align: center;
+    font-size: 200%;
+    margin: 12px;
+    font-weight: bold;
+}
