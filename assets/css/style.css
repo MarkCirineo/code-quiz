@@ -58,7 +58,8 @@ li:hover {
     cursor: pointer;
     font-size: 122%;
     height: 33px;
-    width: 288px;
+    width: 101%;
+    /* padding-top: 10%; */
 }
 
 li:active {
@@ -72,7 +73,7 @@ li:active {
 }
 
 .questions ol {
-    padding: 2px 30%;
+    padding: 2px 25%;
 }
 
 .questions ol li {
@@ -124,4 +125,25 @@ input {
     margin: 12px;
     font-weight: bold;
     display: block;
+}
+
+#high-scores p {
+    padding: 10px 10px 10px 20px;
+    font-size: 135%;
+    background-color: rgb(214, 214, 214);
+    border: solid rgb(156, 156, 156) 2px;
+    border-radius: 1px;
+}
+
+.restart-button {
+    color: white;
+    height: 35px;
+    width: 150px;
+    background-color: purple;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 35px;
+    margin: 10px auto;
+    display: block;
+    /* padding-top: 15px; */
 }

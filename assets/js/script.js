@@ -228,7 +228,11 @@ function enterInitials() {
     question.textContent = "Enter Your Initials:"
     scoreP.setAttribute("class", "score")
     var score = time - 1;
-    scoreP.textContent = "Your score: " + score;
+    if (score >= 0) {
+        scoreP.textContent = "Your score: " + score;
+    } else if (score < 0) {
+        scoreP.textContent = "Your score: " + time;
+    }
     main.prepend(scoreP);
     endResult.setAttribute("class", "end-result")
     if (time === 0 ||  time < 0) {
@@ -256,6 +260,9 @@ function saveScores () {
     showHighScores();
 }
 
+var restartButton = document.createElement("p");
+var pScore = document.createElement("p");
+
 function showHighScores() {
     question.textContent = "High Scores:";
     // hides other elements
@@ -268,16 +275,37 @@ function showHighScores() {
     if (savedScoresTest !== null) {
         savedScores = savedScoresTest;
     }
+    // TODO: get score to print after restarting game.
     for (let i = 0; i < savedScores.length; i++) {
         var score = savedScores[i];
         var scoreArray = Object.keys(score);
         var scoreString = scoreArray.toString();
-        console.log(scoreString)
-        var li = document.createElement("li");
-        li.textContent = scoreString + ": " + score[initialsInput.value];
+        // console.log(scoreString)
+        var scoreUpperCase = scoreString.toUpperCase();
+        // var pScore = document.createElement("p");
+        var index = i + 1
+        pScore.textContent = index + ". " + scoreUpperCase + ": " + score[initialsInput.value];
         // li.setAttribute("data-index", i);
-
-        highScores.appendChild(li);
-        console.log(score);
+        highScores.appendChild(pScore);
+        // console.log(score); 
     }
+    // var restartButton = document.createElement("p");
+    restartButton.setAttribute("style", "display: block;");
+    pScore.setAttribute("style", "display: block");
+    restartButton.setAttribute("class", "restart-button");
+    restartButton.textContent = "Restart";
+    main.appendChild(restartButton);
+}
+
+restartButton.addEventListener("click", startGame)
+
+function startGame() {
+    restartButton.setAttribute("style", "display: none;");
+    pScore.setAttribute("style", "display: none");
+    question.textContent = "";
+    // shows start screen
+    startP.setAttribute("style", "display: block;");
+    h1.setAttribute("style", "display: block;");
+    startButton.setAttribute("style", "display: flex;")
+    time = 60;
 }
