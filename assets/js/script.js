@@ -14,8 +14,8 @@ var initialsInput = document.getElementById("initials");
 var saveScoreButton = document.getElementById("save-score");
 var endResult = document.createElement("p");
 var scoreClass = document.querySelector(".score");
-var scoreP = document.createElement("p")
-var highScores = document.getElementById("high-scores")
+var scoreP = document.createElement("p");
+// var highScores = document.getElementById("high-scores")
 
 //timer function
 function timer() {
@@ -261,7 +261,8 @@ function saveScores () {
 }
 
 var restartButton = document.createElement("p");
-var pScore = document.createElement("p");
+// var pScore = document.createElement("p");
+var highScores = document.getElementById("high-scores");
 
 function showHighScores() {
     question.textContent = "High Scores:";
@@ -275,37 +276,47 @@ function showHighScores() {
     if (savedScoresTest !== null) {
         savedScores = savedScoresTest;
     }
-    // TODO: get score to print after restarting game.
+
+    highScores.setAttribute("style", "display: block");
+
     for (let i = 0; i < savedScores.length; i++) {
         var score = savedScores[i];
         var scoreArray = Object.keys(score);
+        var numberArray = Object.values(score);
         var scoreString = scoreArray.toString();
-        // console.log(scoreString)
         var scoreUpperCase = scoreString.toUpperCase();
-        // var pScore = document.createElement("p");
+        var pScore = document.createElement("p");
         var index = i + 1
-        pScore.textContent = index + ". " + scoreUpperCase + ": " + score[initialsInput.value];
-        // li.setAttribute("data-index", i);
+        pScore.setAttribute("class", "score-p");
+        pScore.textContent = index + ". " + scoreUpperCase + ": " + numberArray;
         highScores.appendChild(pScore);
-        // console.log(score); 
     }
-    // var restartButton = document.createElement("p");
     restartButton.setAttribute("style", "display: block;");
-    pScore.setAttribute("style", "display: block");
     restartButton.setAttribute("class", "restart-button");
     restartButton.textContent = "Restart";
     main.appendChild(restartButton);
+
+    restartButton.addEventListener("click", startGame)
+
+    function startGame() {
+        restartButton.setAttribute("style", "display: none;");
+        highScores.setAttribute("style", "display: none");
+        question.textContent = "";
+
+        var pScoreRemove = document.querySelectorAll(".score-p");
+        console.log(pScoreRemove)
+        pScoreRemove.forEach(function(e){
+            e.remove();
+        });
+        
+        startP.setAttribute("style", "display: block;");
+        h1.setAttribute("style", "display: block;");
+        startButton.setAttribute("style", "display: flex;")
+
+        time = 60;
+        timerP.textContent = "Time: " + time;
+        // TODO: fix timer not working on restart
+    }    
 }
 
-restartButton.addEventListener("click", startGame)
-
-function startGame() {
-    restartButton.setAttribute("style", "display: none;");
-    pScore.setAttribute("style", "display: none");
-    question.textContent = "";
-    // shows start screen
-    startP.setAttribute("style", "display: block;");
-    h1.setAttribute("style", "display: block;");
-    startButton.setAttribute("style", "display: flex;")
-    time = 60;
-}
+// TODO: add view highscores button top left
