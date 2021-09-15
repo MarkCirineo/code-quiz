@@ -259,6 +259,7 @@ function saveScores () {
     scores[initialsInput.value] = time;
     savedScores.push(scores);
     localStorage.setItem("scores", JSON.stringify(savedScores))
+    initialsInput.value = ""
     showHighScores();
 }
 
