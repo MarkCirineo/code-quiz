@@ -123,4 +123,5 @@ input {
     font-size: 200%;
     margin: 12px;
     font-weight: bold;
+    display: block;
 }

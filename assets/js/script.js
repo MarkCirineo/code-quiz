@@ -14,8 +14,8 @@ var initialsInput = document.getElementById("initials");
 var saveScoreButton = document.getElementById("save-score");
 var endResult = document.createElement("p");
 var scoreClass = document.querySelector(".score");
-// var savedScores = [];
-// var scores = {};
+var scoreP = document.createElement("p")
+var highScores = document.getElementById("high-scores")
 
 //timer function
 function timer() {
@@ -226,7 +226,6 @@ function enterInitials() {
     questionFour.setAttribute("style", "display: none;")
     questionFive.setAttribute("style", "display: none;")
     question.textContent = "Enter Your Initials:"
-    var scoreP = document.createElement("p")
     scoreP.setAttribute("class", "score")
     var score = time - 1;
     scoreP.textContent = "Your score: " + score;
@@ -255,4 +254,30 @@ function saveScores () {
     savedScores.push(scores);
     localStorage.setItem("scores", JSON.stringify(savedScores))
     showHighScores();
+}
+
+function showHighScores() {
+    question.textContent = "High Scores:";
+    // hides other elements
+    initialsInput.setAttribute("style", "display: none;");
+    saveScoreButton.setAttribute("style", "display: none;");
+    endResult.setAttribute("style", "display: none;");
+    scoreP.setAttribute("style", "display: none;");
+    // shows other elements
+    var savedScoresTest = JSON.parse(localStorage.getItem("scores"));
+    if (savedScoresTest !== null) {
+        savedScores = savedScoresTest;
+    }
+    for (let i = 0; i < savedScores.length; i++) {
+        var score = savedScores[i];
+        var scoreArray = Object.keys(score);
+        var scoreString = scoreArray.toString();
+        console.log(scoreString)
+        var li = document.createElement("li");
+        li.textContent = scoreString + ": " + score[initialsInput.value];
+        // li.setAttribute("data-index", i);
+
+        highScores.appendChild(li);
+        console.log(score);
+    }
 }
