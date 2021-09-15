@@ -15,7 +15,9 @@ var saveScoreButton = document.getElementById("save-score");
 var endResult = document.createElement("p");
 var scoreClass = document.querySelector(".score");
 var scoreP = document.createElement("p");
-// var highScores = document.getElementById("high-scores")
+var viewHighScores = document.getElementById("view-high-scores")
+
+
 
 //timer function
 function timer() {
@@ -27,7 +29,7 @@ function timer() {
             time = 0;
             timerP.textContent = "Time: " + time;
             enterInitials();
-        } else if (endResult.textContent === "You Win!") {
+        } else if (question.textContent === "Enter Your Initials:") {
             clearInterval(allTimer);
             timerP.textContent = "Time: " + time;
         }
@@ -316,8 +318,21 @@ function showHighScores() {
 
         time = 60;
         timerP.textContent = "Time: " + time;
-        endResult.textContent = "";
     }    
 }
 
-// TODO: add view highscores button top left
+viewHighScores.addEventListener("click", removeOtherElements)
+
+function removeOtherElements() {
+    startP.setAttribute("style", "display: none;");
+    h1.setAttribute("style", "display: none;");
+    startButton.setAttribute("style", "display: none;")
+    questionOne.setAttribute("style", "display: none;")
+    questionTwo.setAttribute("style", "display: none;")
+    questionThree.setAttribute("style", "display: none;")
+    questionFour.setAttribute("style", "display: none;")
+    questionFive.setAttribute("style", "display: none;")
+    question.textContent = "High Scores:"
+    main.prepend(question);
+    showHighScores();
+}
