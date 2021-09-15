@@ -9,10 +9,13 @@ var questionThree = document.getElementById("question-three");
 var questionFour = document.getElementById("question-four");
 var questionFive = document.getElementById("question-five");
 var time = 60;
-var timerP = document.getElementById("timer-p")
+var timerP = document.getElementById("timer-p");
 var initialsInput = document.getElementById("initials");
 var saveScoreButton = document.getElementById("save-score");
 var endResult = document.createElement("p");
+var scoreClass = document.querySelector(".score");
+// var savedScores = [];
+// var scores = {};
 
 //timer function
 function timer() {
@@ -241,9 +244,15 @@ function enterInitials() {
     saveScoreButton.setAttribute("style", "display: block;")
 }
 
-saveScoreButton.addEventListener("click", saveScores)
+saveScoreButton.addEventListener("click", saveScores);
 
+var savedScores = [];
 
 function saveScores () {
-    
+    // saves scores to local storage
+    var scores = {};
+    scores[initialsInput.value] = time;
+    savedScores.push(scores);
+    localStorage.setItem("scores", JSON.stringify(savedScores))
+    showHighScores();
 }
