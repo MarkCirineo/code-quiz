@@ -261,7 +261,6 @@ function saveScores () {
 }
 
 var restartButton = document.createElement("p");
-// var pScore = document.createElement("p");
 var highScores = document.getElementById("high-scores");
 
 function showHighScores() {
@@ -303,19 +302,21 @@ function showHighScores() {
         highScores.setAttribute("style", "display: none");
         question.textContent = "";
 
+        //removes each high score
         var pScoreRemove = document.querySelectorAll(".score-p");
-        console.log(pScoreRemove)
         pScoreRemove.forEach(function(e){
             e.remove();
         });
         
+        //brings back elements from the starting screen
         startP.setAttribute("style", "display: block;");
         h1.setAttribute("style", "display: block;");
         startButton.setAttribute("style", "display: flex;")
+        startButton.addEventListener("click", startQuestionOne);
 
         time = 60;
         timerP.textContent = "Time: " + time;
-        // TODO: fix timer not working on restart
+        endResult.textContent = "";
     }    
 }
 
